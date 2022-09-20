@@ -1,6 +1,7 @@
 from datetime import date
 from collections import Counter
 
+
 class SimpleReport:
     def generate(lista):
         oldestDate = date.today()

@@ -7,8 +7,8 @@ def test_cria_produto():
         3,
         'produtoTeste',
         'empresaTeste',
-        datetime.now(),
-        datetime.now(),
+        datetime.now().strftime("%x"),
+        datetime.now().strftime("%x"),
         '10',
         'em ambiente arejado'
     )

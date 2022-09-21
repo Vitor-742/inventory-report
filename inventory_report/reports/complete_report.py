@@ -7,19 +7,20 @@ def aux(lista):
     oldestDate = date.today()
     closest_date = date.min
     empresas = []
-    for item in lista:
+    for index, item in enumerate(lista):
         empresas.append(item['nome_da_empresa'])
         dateFabricacao = date.fromisoformat(item['data_de_fabricacao'])
         dateValidade = date.fromisoformat(item['data_de_validade'])
         if(oldestDate > dateFabricacao):
             oldestDate = dateFabricacao
-        if(closest_date < date.today() < dateValidade):
-            closest_date = dateValidade
+        if(closest_date > dateValidade > date.today() or index == 0):
+                closest_date = dateValidade
     return [empresas, oldestDate, closest_date]
 
 
 class CompleteReport(SimpleReport):
-    def generate(self, lista):
+    @staticmethod
+    def generate(lista):
         # oldestDate = date.today()
         # closest_date = date.min
         # empresas = []

@@ -1,5 +1,5 @@
 from inventory_report.inventory.product import Product
-from datetime import datetime
+from datetime import datetime, date
 
 
 def test_relatorio_produto():
@@ -12,6 +12,7 @@ def test_relatorio_produto():
         '10',
         'em ambiente arejado'
     )
-    assert str(produto_test) == "O produto produtoTeste fabricado em 09/20/22 \
-por empresaTeste com validade até 09/20/22 precisa ser armazenado em \
+    dateToday = str(datetime.now().strftime("%x"))
+    assert str(produto_test) == f"O produto produtoTeste fabricado em {dateToday} \
+por empresaTeste com validade até {dateToday} precisa ser armazenado em \
 ambiente arejado."

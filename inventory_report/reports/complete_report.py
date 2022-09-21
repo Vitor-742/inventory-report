@@ -14,7 +14,7 @@ def aux(lista):
         if(oldestDate > dateFabricacao):
             oldestDate = dateFabricacao
         if(closest_date > dateValidade > date.today() or index == 0):
-                closest_date = dateValidade
+            closest_date = dateValidade
     return [empresas, oldestDate, closest_date]
 
 

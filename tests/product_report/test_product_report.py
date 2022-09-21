@@ -1,5 +1,5 @@
 from inventory_report.inventory.product import Product
-from datetime import datetime, date
+from datetime import datetime
 
 
 def test_relatorio_produto():

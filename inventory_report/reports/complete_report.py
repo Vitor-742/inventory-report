@@ -3,19 +3,36 @@ from datetime import date
 from collections import Counter
 
 
+def aux(lista):
+    oldestDate = date.today()
+    closest_date = date.min
+    empresas = []
+    for item in lista:
+        empresas.append(item['nome_da_empresa'])
+        dateFabricacao = date.fromisoformat(item['data_de_fabricacao'])
+        dateValidade = date.fromisoformat(item['data_de_validade'])
+        if(oldestDate > dateFabricacao):
+            oldestDate = dateFabricacao
+        if(closest_date < date.today() < dateValidade):
+            closest_date = dateValidade
+    return [empresas, oldestDate, closest_date]
+
+
 class CompleteReport(SimpleReport):
     def generate(self, lista):
-        oldestDate = date.today()
-        closest_date = date.min
-        empresas = []
-        for item in lista:
-            empresas.append(item['nome_da_empresa'])
-            dateFabricacao = date.fromisoformat(item['data_de_fabricacao'])
-            dateValidade = date.fromisoformat(item['data_de_validade'])
-            if(oldestDate > dateFabricacao):
-                oldestDate = dateFabricacao
-            if(closest_date < date.today() < dateValidade):
-                closest_date = dateValidade
+        # oldestDate = date.today()
+        # closest_date = date.min
+        # empresas = []
+        # for item in lista:
+        #     empresas.append(item['nome_da_empresa'])
+        #     dateFabricacao = date.fromisoformat(item['data_de_fabricacao'])
+        #     dateValidade = date.fromisoformat(item['data_de_validade'])
+        #     if(oldestDate > dateFabricacao):
+        #         oldestDate = dateFabricacao
+        #     if(closest_date < date.today() < dateValidade):
+        #         closest_date = dateValidade
+        empresas, oldestDate, closest_date = aux(lista)
+        print(empresas)
         counter_emp = Counter(empresas)
         company_bigger_stock = counter_emp.most_common()
         produtos_empresa = []

@@ -13,7 +13,7 @@ class SimpleReport:
             dateValidade = date.fromisoformat(item['data_de_validade'])
             if(oldestDate > dateFabricacao):
                 oldestDate = dateFabricacao
-            if(closest_date <  date.today() < dateValidade):
+            if(closest_date < date.today() < dateValidade):
                 closest_date = dateValidade
         company_bigger_stock = Counter(empresas).most_common()
         string_lista = (

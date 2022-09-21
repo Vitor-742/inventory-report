@@ -2,12 +2,13 @@ import csv
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 
+
 class Inventory:
     def import_data(file, report_type):
         with open(file) as csv_file:
             CSVreader = csv.reader(csv_file, delimiter=",", quotechar='"')
             header, *data = CSVreader
-        
+
         listData = []
         for item in data:
             product = {}

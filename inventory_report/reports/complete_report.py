@@ -33,7 +33,6 @@ class CompleteReport(SimpleReport):
         #     if(closest_date < date.today() < dateValidade):
         #         closest_date = dateValidade
         empresas, oldestDate, closest_date = aux(lista)
-        print(empresas)
         counter_emp = Counter(empresas)
         company_bigger_stock = counter_emp.most_common()
         produtos_empresa = []
